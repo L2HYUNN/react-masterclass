@@ -14,11 +14,6 @@ const Circle = styled(Box)`
   border-radius: 50px;
 `;
 
-const Text = styled.span`
-  color: white;
-  font-size: 40px;
-`;
-
 function App() {
   return (
     <Father>
