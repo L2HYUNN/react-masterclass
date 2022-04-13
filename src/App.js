@@ -14,6 +14,11 @@ const Circle = styled(Box)`
   border-radius: 50px;
 `;
 
+const Title = styled.h1`
+  font-size: 30px;
+  color: aliceblue;
+`;
+
 function App() {
   return (
     <Father>
