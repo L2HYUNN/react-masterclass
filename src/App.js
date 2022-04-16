@@ -22,6 +22,10 @@ const Title2 = styled.h1`
   font-size: 30px;
   color: aliceblue;
 `;
+const Title3 = styled.h1`
+  font-size: 30px;
+  color: aliceblue;
+`;
 
 function App() {
   return (
