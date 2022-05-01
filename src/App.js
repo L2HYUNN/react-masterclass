@@ -18,24 +18,24 @@ const Title = styled.h1`
   font-size: 30px;
   color: aliceblue;
 `;
-const Title2 = styled.h1`
-  font-size: 30px;
-  color: aliceblue;
+
+const Btn = styled.button`
+  color: white;
+  background-color: tomato;
+  border: 0;
+  border-radius: 15px;
 `;
-const Title3 = styled.h1`
-  font-size: 30px;
-  color: aliceblue;
-`;
-const Title4 = styled.h1`
-  font-size: 50px;
-  color: aliceblue;
+
+const Link = styled(Btn)``;
+
+const Input = styled.input.attrs({ required: true })`
+  background-color: tomato;
 `;
 
 function App() {
   return (
-    <Father>
-      <Box bgColor="teal" />
-      <Circle bgColor="tomato" />
+    <Father as="header">
+      <Input />
     </Father>
   );
 }
