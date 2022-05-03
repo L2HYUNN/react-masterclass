@@ -36,6 +36,9 @@ const Box = styled.div`
     &:hover {
       font-size: 98px;
     }
+    &:active {
+      opactiy: 0;
+    }
   }
 `;
 
