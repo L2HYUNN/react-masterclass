@@ -3,8 +3,9 @@ import { useOutletContext } from "react-router-dom";
 import { fetchCoinHistory } from "./api";
 import ApexChart from "react-apexcharts";
 
-interface ICoinId {
+interface IChartProps {
   coinId: string;
+  isDark: boolean;
 }
 
 interface IHistorical {
@@ -19,7 +20,7 @@ interface IHistorical {
 }
 
 function Chart() {
-  const { coinId } = useOutletContext<ICoinId>();
+  const { coinId, isDark } = useOutletContext<IChartProps>();
   const { isLoading, data } = useQuery<IHistorical[]>(
     ["ohlcv", coinId],
     () => fetchCoinHistory(coinId),
@@ -42,7 +43,7 @@ function Chart() {
           ]}
           options={{
             theme: {
-              mode: "dark",
+              mode: isDark ? "dark" : "light",
             },
             chart: {
               height: 300,
