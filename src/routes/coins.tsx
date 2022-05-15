@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { fetchCoins } from "./api";
+import { fetchCoins } from "../api";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -65,11 +65,9 @@ interface ICoin {
   type: string;
 }
 
-interface ICoinsProps {
-  toggleDark: () => void;
-}
+interface ICoinsProps {}
 
-function Coins({ toggleDark }: ICoinsProps) {
+function Coins({}: ICoinsProps) {
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
   // const [coins, setCoins] = useState<CoinInterface[]>([]);
   // const [loading, setLoading] = useState(true);
@@ -89,7 +87,7 @@ function Coins({ toggleDark }: ICoinsProps) {
       </Helmet>
       <Header>
         <Title>Coins</Title>
-        <button onClick={toggleDark}>Toggle Mode</button>
+        <button>Toggle Mode</button>
       </Header>
       {isLoading ? (
         <Loader>Loading...</Loader>
