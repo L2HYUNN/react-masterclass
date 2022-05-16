@@ -34,27 +34,52 @@ import { useForm } from "react-hook-form";
 //   );
 // }
 
+interface IForm {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password1: string;
+  password2: string;
+}
+
 function ToDoList() {
-  const { register, watch, handleSubmit, formState } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IForm>({
+    defaultValues: {
+      email: "@naver.com",
+    },
+  });
   const onValid = (data: any) => {
     console.log(data);
   };
   return (
     <div>
-      <form onSubmit={handleSubmit(onValid)}>
+      <form
+        style={{ display: "flex", flexDirection: "column" }}
+        onSubmit={handleSubmit(onValid)}
+      >
         <input
-          {...register("firstName", { required: true })}
+          {...register("firstName", { required: "firstName is required" })}
           type="text"
           placeholder="firstName"
         />
+        <span>{errors?.firstName?.message}</span>
         <input
-          {...register("lastName", { required: true })}
+          {...register("lastName", { required: "lastName is required" })}
           type="text"
           placeholder="lastName"
         />
+        <span>{errors?.lastName?.message}</span>
         <input
-          {...register("Email", {
+          {...register("email", {
             required: "Email is required",
+            pattern: {
+              value: /^[A-Za-z0-9._%+-]+@naver.com$/,
+              message: "Only naver Only",
+            },
             minLength: {
               value: 5,
               message: "Your Email is too short.",
@@ -63,16 +88,19 @@ function ToDoList() {
           type="text"
           placeholder="Email"
         />
+        <span>{errors?.email?.message}</span>
         <input
-          {...register("password1", { required: true })}
+          {...register("password1", { required: "password1 is required" })}
           type="text"
           placeholder="password1"
         />
+        <span>{errors?.password1?.message}</span>
         <input
-          {...register("password2", { required: true })}
+          {...register("password2", { required: "password2 is required" })}
           type="text"
           placeholder="password2"
         />
+        <span>{errors?.password2?.message}</span>
         <button>Add</button>
       </form>
     </div>
