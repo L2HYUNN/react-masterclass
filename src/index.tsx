@@ -76,12 +76,10 @@ a {
 `;
 
 root.render(
-  <React.StrictMode>
-    <ThemeProvider theme={darkTheme}>
-      <RecoilRoot>
-        <GlobalStyle />
-        <App />
-      </RecoilRoot>
-    </ThemeProvider>
-  </React.StrictMode>
+  <ThemeProvider theme={darkTheme}>
+    <RecoilRoot>
+      <GlobalStyle />
+      <App />
+    </RecoilRoot>
+  </ThemeProvider>
 );
